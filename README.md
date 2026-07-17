@@ -39,3 +39,141 @@ The data can be found in the/datasets/Churn.csv file. Download the dataset.
 **Target**
 
 Exited — сustomer has left (1 - yes; 0 - no)
+
+### General machine-learning workflow
+
+1. Understand the problem
+First identify:
+What do you want to predict?
+Is it classification or regression?
+Which metric will measure success?
+**For Beta Bank:**
+
+*Target: whether a customer leaves*
+*Problem: binary classification*
+*mportant metrics: F1 score and ROC-AUC*
+
+2. Explore the data
+
+*Understand every column:*
+
+Numerical or categorical?
+Which column is the target?
+Are the classes balanced?
+Are any columns irrelevant?
+Are there unusual values or distributions?
+3. Clean the data
+Handle:
+    Missing values
+    Duplicate rows
+    Incorrect data types
+    Impossible or unusual values
+    Irrelevant identification columns
+
+`Customer names and customer IDs usually do not help the model.`
+
+**4.** Separate features and target
+Features: information used to make predictions
+Target: the result you want to predict
+
+**5.** Split the data
+
+Usually divide the data into:
+
+Training set: teaches the model
+Validation set: compares models and settings
+Test set: evaluates the final model
+
+A common split is 60% training, 20% validation, and 20% test.
+
+**6.** Encode categorical features
+
+Machine-learning models need numbers, so convert categories such as:
+
+* Gender
+* Country
+* Account type
+
+Common methods:
+
+One-hot encoding: best for categories without an order, such as country
+Ordinal encoding: used only when categories have a meaningful order, such as low, medium, and high
+7. Standardize numerical features
+
+Standardization puts numerical features on a similar scale.
+
+For example:
+
+Salary may be between 0 and 200,000
+Number of products may be between 1 and 4
+
+Scaling prevents large numbers from having too much influence.
+
+It is especially important for:
+
+Logistic Regression
+K-Nearest Neighbors
+Support Vector Machines
+Neural networks
+
+It is generally unnecessary for Decision Trees and Random Forests.
+Split data → OHE encoding → standardize numerical columns → train Logistic Regression
+10. Train several models
+
+Start with a simple model and then try more complex models:
+
+Logistic Regression
+Decision Tree
+Random Forest
+Gradient Boosting
+11. Evaluate and compare models
+
+Choose metrics based on the business problem.
+
+For imbalanced classification:
+
+Precision: When the model predicts a customer will leave, how often is it correct?
+Recall: How many customers who actually leave does the model find?
+F1 score: Balance between precision and recall
+ROC-AUC: How well the model separates the two classes
+
+Do not rely only on accuracy when the classes are imbalanced.
+
+12. Tune hyperparameters
+
+Adjust model settings to improve performance—for example:
+
+Tree depth
+Number of trees
+Minimum samples needed for a split
+
+Use the validation set or cross-validation during tuning.
+
+13. Test the final model
+
+Select the best model and evaluate it once on the untouched test set.
+
+This gives a more realistic estimate of how it will perform on new data.
+
+14. Interpret the model
+
+Determine:
+
+Which features are most important?
+Does the result make business sense?
+Are there possible biases?
+What kinds of mistakes does the model make?
+15. Communicate the conclusion
+
+Explain:
+
+The problem
+How the data was prepared
+Which models were tested
+Which model performed best
+Its final metrics
+How the business could use its predictions
+
+The short order to remember is:
+
+Understand → Explore → Clean → Split → Encode → Standardize → Balance → Train → Evaluate → Tune → Test → Explain
