@@ -98,51 +98,41 @@ Common methods:
 
 One-hot encoding: best for categories without an order, such as country
 Ordinal encoding: used only when categories have a meaningful order, such as low, medium, and high
+
 7. Standardize numerical features
-
 Standardization puts numerical features on a similar scale.
-
 For example:
-
 Salary may be between 0 and 200,000
 Number of products may be between 1 and 4
-
 Scaling prevents large numbers from having too much influence.
-
 It is especially important for:
-
 Logistic Regression
 K-Nearest Neighbors
 Support Vector Machines
 Neural networks
-
 It is generally unnecessary for Decision Trees and Random Forests.
 Split data → OHE encoding → standardize numerical columns → train Logistic Regression
+
 10. Train several models
-
 Start with a simple model and then try more complex models:
-
 Logistic Regression
 Decision Tree
 Random Forest
 Gradient Boosting
-11. Evaluate and compare models
 
+11. Evaluate and compare models
 Choose metrics based on the business problem.
 
 For imbalanced classification:
-
 Precision: When the model predicts a customer will leave, how often is it correct?
 Recall: How many customers who actually leave does the model find?
 F1 score: Balance between precision and recall
 ROC-AUC: How well the model separates the two classes
 
-Do not rely only on accuracy when the classes are imbalanced.
+*`Do not rely only on accuracy when the classes are imbalanced.`*
 
 12. Tune hyperparameters
-
 Adjust model settings to improve performance—for example:
-
 Tree depth
 Number of trees
 Minimum samples needed for a split
@@ -152,11 +142,9 @@ Use the validation set or cross-validation during tuning.
 13. Test the final model
 
 Select the best model and evaluate it once on the untouched test set.
-
 This gives a more realistic estimate of how it will perform on new data.
 
 14. Interpret the model
-
 Determine:
 
 Which features are most important?
@@ -177,3 +165,11 @@ How the business could use its predictions
 The short order to remember is:
 
 Understand → Explore → Clean → Split → Encode → Standardize → Balance → Train → Evaluate → Tune → Test → Explain
+Standardization is important for:
+
+Distance-based models (KNN, K-means)
+Linear models (Logistic Regression, Linear Regression)
+Gradient descent-based models (Neural Networks)
+Standardization does NOT matter for:
+
+Tree-based models (Random Forest, Decision Trees, Gradient Boostin)
